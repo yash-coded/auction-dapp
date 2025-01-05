@@ -1,5 +1,5 @@
 "use client";
-import { MetaMaskProvider, MetaMaskSDKOptions } from "@metamask/sdk-react";
+import { MetaMaskProvider } from "@metamask/sdk-react";
 export const WalletProvider = (props: { children: React.ReactNode }) => {
   const host =
     typeof window !== "undefined" ? window.location.host : "defaultHost";
