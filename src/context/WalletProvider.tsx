@@ -1,10 +1,11 @@
 "use client";
-import { MetaMaskProvider } from "@metamask/sdk-react";
+import { MetaMaskProvider, MetaMaskSDKOptions } from "@metamask/sdk-react";
 export const WalletProvider = (props: { children: React.ReactNode }) => {
   const host =
     typeof window !== "undefined" ? window.location.host : "defaultHost";
+  console.log("🚀 ~ WalletProvider ~ sdkOptions.dappMetadata.host:", host);
   const sdkOptions = {
-    logging: { developerMode: true },
+    logging: { developerMode: false },
     checkInstallationImmediately: true,
     dappMetadata: {
       name: "Next-Metamask-Boilerplate",
@@ -12,7 +13,7 @@ export const WalletProvider = (props: { children: React.ReactNode }) => {
     },
   };
   return (
-    <MetaMaskProvider sdkOptions={sdkOptions} debug>
+    <MetaMaskProvider sdkOptions={sdkOptions}>
       {props.children}
     </MetaMaskProvider>
   );
